@@ -17,7 +17,7 @@ def get_mise(city):
     sidoName = convert_cityname[city]
     pageNo = "1"
     numOfRows = "10"
-    apiKey = "Rq7qiY10CshLuLdOB0E5iqqaTH1%2BQ5ScQecqgW2orlJ5j678Zv8j85HwR3Eo8XX8Dg6fc%2Fp8o3XvInGI4HsfdA%3D%3D"
+    apiKey = "Your API KEY at data.go.kr"
     version = "1.3"
     returnType = "json"
 
