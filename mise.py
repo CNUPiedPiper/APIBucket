@@ -34,4 +34,4 @@ def get_mise(city):
     data = urllib2.urlopen(url, params).read()
     data = json.loads(data)
 
-    return sidoName, data["list"][1]["pm10Value"], convert_dust_level[data["list"][1]["pm10Value"]
+    return "오늘 미세먼지 농도는 " + data["list"][1]["pm10Value"] + "이고 상태는" + convert_dust_level[data["list"][1]["pm10Value"] + "입니다."
