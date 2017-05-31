@@ -9,7 +9,7 @@ tomorrow_sky_dict = {'SKY_M01': "맑은 날씨", 'SKY_M02': '구름이 조금 �
 def get_weather(lat, lon, time="now"):
 	params = {"version":"1","lat":lat,"lon":lon}
 
-	key = {"Your API KEY at developers.skplanetx.com"}
+	key = {"appKey":"Your API KEY at developers.skplanetx.com"}
 
 	current_weather = requests.get("http://apis.skplanetx.com/weather/current/hourly",params=params, headers=key)
 	current_result = current_weather.json()
