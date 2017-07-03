@@ -51,7 +51,8 @@ if __name__=='__main__':
     result_dict = json.loads(result_str)
     
     if result_dict['status']['msg']=='Success':
-        text = result_dict['metadata']['music'][0]['artists'][0]['name'] + "의노래 "+ result_dict['metadata']['music'][0]['title'] + "입니다."
+        text = "{artists}의 음악 {title}입니다.".format(artists=result_dict['metadata']['music'][0]['artists'][0]['name'],title=result_dict['metadata']['music'][0]['title'])
+
 
         print text
         #return text
