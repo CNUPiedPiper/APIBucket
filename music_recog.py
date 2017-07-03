@@ -9,7 +9,7 @@ FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
 RECORD_SECONDS = 11
-WAVE_OUTPUT_FILENAME = "music_with_noise.wav"
+WAVE_OUTPUT_FILENAME = ".music_with_noise.wav"
 
 def recording_music():
     p = pyaudio.PyAudio()
@@ -42,7 +42,12 @@ def recording_music():
     wf.setframerate(RATE)
     wf.writeframes(b''.join(frames))
     wf.close()
+
+if __name__=='__main__':
+#def get_music_title():
+    recording_music()
+    result_str = recognition_api.recognize_music(WAVE_OUTPUT_FILENAME)
+    result_dict = json.loads(result_str)
     
-def get_music_title():
-    self.recording_music()
-    
+    if result_dict['status']['msg']=='Success':
+        print result_dict['metadata']['music'][0]['artists'][0]['name'] + " : "+ result_dict['metadata']['music'][0]['title']
