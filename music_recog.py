@@ -1,3 +1,4 @@
+#-*- coding: utf-8 -*-
 import pyaudio
 import wave
 import json
@@ -50,4 +51,9 @@ if __name__=='__main__':
     result_dict = json.loads(result_str)
     
     if result_dict['status']['msg']=='Success':
-        print result_dict['metadata']['music'][0]['artists'][0]['name'] + " : "+ result_dict['metadata']['music'][0]['title']
+        text = result_dict['metadata']['music'][0]['artists'][0]['name'] + "의노래 "+ result_dict['metadata']['music'][0]['title'] + "입니다."
+
+        print text
+        return text
+    else : 
+        print "음악을 찾을 수 없습니다."
