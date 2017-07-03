@@ -4,7 +4,7 @@ import json
 import recognition_api
 
 THRESHOLD = 500
-CHUNK = 1024
+CHUNK = 4096
 FORMAT = pyaudio.paInt16
 CHANNELS = 1
 RATE = 44100
@@ -13,11 +13,13 @@ WAVE_OUTPUT_FILENAME = "music_with_noise.wav"
 
 def recording_music():
     p = pyaudio.PyAudio()
-
+    
+    print("start")
     stream = p.open(format=FORMAT,
                     channels=CHANNELS,
                     rate=RATE,
                     input=True,
+                    input_device_index=2,
                     frames_per_buffer=CHUNK)
 
     print("[HARU] Listening your music ... ")
@@ -43,4 +45,4 @@ def recording_music():
     
 def get_music_title():
     self.recording_music()
-    recognition_api.
+    
