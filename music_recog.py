@@ -54,6 +54,6 @@ if __name__=='__main__':
         text = result_dict['metadata']['music'][0]['artists'][0]['name'] + "의노래 "+ result_dict['metadata']['music'][0]['title'] + "입니다."
 
         print text
-        return text
+        #return text
     else : 
         print "음악을 찾을 수 없습니다."
