@@ -9,12 +9,22 @@ def get_issue():
 
     issue_data = list()
 
+    text = u"오늘의 이슈로는 "
+
     for res in result:
         if res['class'][0] == 'rank_list':
             keywords = res.find_all('span')
-            for key in keywords:
-                issue_data.append(key.contents[0])
-            break
+            top = 0
 
-    return issue_data
+            for key in keywords:
+                if top == 10:
+                    break
+                text = text + unicode(key.contents[0]) + " "
+                issue_data.append(key.contents[0])
+                top = top + 1
+
+            text = text + u"가 있습니다."
+
+            print(text)
+            return text 
 
